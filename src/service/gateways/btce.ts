@@ -462,8 +462,9 @@ class BtcEBaseGateway implements Interfaces.IExchangeDetailsGateway {
     private static AllPairs = [
         new Models.CurrencyPair(Models.Currency.BTC, Models.Currency.USD)
     ];
+    
     public get supportedCurrencyPairs() {
-        return CoinbaseBaseGateway.AllPairs;
+        return BtcEBaseGateway.AllPairs;
     }
 }
 

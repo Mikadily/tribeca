@@ -497,6 +497,7 @@ class HitBtcPositionGateway implements Interfaces.IPositionGateway {
             (err, body, resp) => {
                 try {
                     var rpts : Array<HitBtcPositionReport> = JSON.parse(resp).balance;
+		    this._log("rpts array: ", rpts);
 
                     if (typeof rpts === 'undefined' || err) {
                         this._log("Trouble getting positions err: %o body: %o", err, body.body);

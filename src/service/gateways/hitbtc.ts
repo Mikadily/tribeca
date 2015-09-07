@@ -497,25 +497,20 @@ class HitBtcPositionGateway implements Interfaces.IPositionGateway {
             (err, body, resp) => {
                 try {
                     var rpts : Array<HitBtcPositionReport> = JSON.parse(resp).balance;
-		    this._log("rpts array: ", rpts);
-
                     if (typeof rpts === 'undefined' || err) {
                         this._log("Trouble getting positions err: %o body: %o", err, body.body);
                         return;
                     }
 
                     rpts.forEach(r => {
-			this._log("Entering first forEachCycle: ", r.currency_code);
 			try {
-                        var currency = GetCurrencyEnum(r.currency_code);
+                            var currency = GetCurrencyEnum(r.currency_code);
 			}
 			catch (e)
 			{
-			//    this._log("exception: ", e);
 			    return;
 			}
                         if (currency == null) return;
-			this._log("passed the if statement");
                         var position = new Models.CurrencyPosition(r.cash, r.reserved, currency);
                         this.PositionUpdate.trigger(position);
                     });

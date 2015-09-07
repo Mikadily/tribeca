@@ -511,11 +511,11 @@ class HitBtcPositionGateway implements Interfaces.IPositionGateway {
 			}
 			catch (e)
 			{
-			    this._log("exception: ", e);
+			//    this._log("exception: ", e);
 			    return;
 			}
-			this._log("parsing currency: ", currency);
                         if (currency == null) return;
+			this._log("passed the if statement");
                         var position = new Models.CurrencyPosition(r.cash, r.reserved, currency);
                         this.PositionUpdate.trigger(position);
                     });

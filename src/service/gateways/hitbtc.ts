@@ -513,6 +513,7 @@ class HitBtcPositionGateway implements Interfaces.IPositionGateway {
                 catch (e)
                 {
                     this._log("Error processing JSON response ", resp);
+		    process.exit(1);
                 }
             });
     };

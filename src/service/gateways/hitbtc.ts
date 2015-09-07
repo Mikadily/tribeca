@@ -506,6 +506,7 @@ class HitBtcPositionGateway implements Interfaces.IPositionGateway {
 
                     rpts.forEach(r => {
                         var currency = GetCurrencyEnum(r.currency_code);
+			this._log("parsing currency: ", currency);
                         if (currency == null) return;
                         var position = new Models.CurrencyPosition(r.cash, r.reserved, currency);
                         this.PositionUpdate.trigger(position);

@@ -511,6 +511,7 @@ class HitBtcPositionGateway implements Interfaces.IPositionGateway {
 			}
 			catch (e)
 			{
+			    this._log("exception: ", e);
 			    return;
 			}
 			this._log("parsing currency: ", currency);

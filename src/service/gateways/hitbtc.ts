@@ -580,12 +580,12 @@ class HitBtcBaseGateway implements Interfaces.IExchangeDetailsGateway {
 }
 
 function GetCurrencyEnum(c: string) : Models.Currency {
-    switch (name.toUpperCase()) {
+    switch (c.toUpperCase()) {
         case "BTC": return Models.Currency.BTC;
         case "USD": return Models.Currency.USD;
         case "EUR": return Models.Currency.EUR;
         case "LTC": return Models.Currency.LTC;
-        default: throw new Error("Unsupported currency " + name);
+        default: throw new Error("Unsupported currency " + c);
     }
 }
 
